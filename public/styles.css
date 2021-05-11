@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,200&display=swap");
+
+@font-face {
+  font-family: "Minecraft Italic";
+  src: url("./assets/MinecraftItalic.woff2") format("woff2");
+}
+
+h1 {
+  font-family: "Minecraft Italic", monospace;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
