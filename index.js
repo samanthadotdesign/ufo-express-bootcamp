@@ -75,16 +75,14 @@ app.post('/contribute', (req, res) => {
     const contentObj = JSON.parse(content);
     const contentArr = contentObj.contributions;
     i = contentArr.length - 1;
-    console.log(contentArr.length);
 
     const contribution = {
       index: i,
       date: req.body.date,
     };
-  });
 
-  console.log(contribution.date);
-  res.render('submitted', contribution);
+    res.render('submitted', contribution);
+  });
 });
 
 // contribute/720
