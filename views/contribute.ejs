@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" type="text/css" />
+    <script
+      src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"
+    >
+      var timepicker = document.getElementById('timepicker')
+      var timepicker = new TimePicker(".field", {
+        theme: "dark",
+        lang: "pt",
+      });
+      timepicker.on("change", function (evt) {
+        var value = (evt.hour || "00") + ":" + (evt.minute || "00");
+        evt.element.value = value;
+      });
+    </script>
 
     <title>Contribute Sighting</title>
   </head>
@@ -35,7 +48,7 @@
 
       <div>
         <label for="duration">Time</label>
-        <input type="number" name="duration" step="0.001" />
+        <input type="text" id="timepicker" placeholder="Time" />
       </div>
 
       <div>

@@ -5,7 +5,7 @@ import { readFile, writeFile } from 'fs';
  * @param {string} filename - Name of JSON file
  * @param {object} jsonContentObj - The content to write to the JSON file
  * @param {function} callback - The callback function to execute on error or success
- *                              Callback takes write error as 1st param and JS Object as 2nd param.
+ * Callback takes write error as 1st param and JS Object as 2nd param.
  * @returns undefined
  */
 export function write(filename, jsonContentObj, callback) {
@@ -30,7 +30,7 @@ export function write(filename, jsonContentObj, callback) {
  * Add a JS Object to an array of Objects in a JSON file
  * @param {string} filename - Name of JSON file
  * @param {function} callback - The callback function to execute on error or success
- *                              Callback takes read error as 1st param and JS Object as 2nd param.
+ * Callback takes read error as 1st param and JS Object as 2nd param.
  * @returns undefined
  */
 export function read(filename, callback) {
@@ -57,7 +57,7 @@ export function read(filename, callback) {
  * Add a JS Object to an array of Objects in a JSON file
  * @param {string} filename - Name of JSON file
  * @param {function} callback - The callback function to execute on error or success
- *                              Callback takes read error as 1st param and JS Object as 2nd param.
+ * Callback takes read error as 1st param and JS Object as 2nd param.
  * @returns undefined
  */
 export function edit(filename, readCallback, writeCallback) {

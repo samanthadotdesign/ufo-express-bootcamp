@@ -9,6 +9,42 @@
   </head>
   <body>
     <h1>Edit Contribution</h1>
-    <a href="/contribute/<%= index %>/delete" class="button">Delete</a>
+    <form action="/contribute/<%= index %>?method=PUT" method="POST">
+      <div>
+        <label for="date">Date</label>
+        <input type="date" name="date" />
+      </div>
+      <div>
+        <label for="time">Time</label>
+        <input type="time" name="time" />
+      </div>
+
+      <div>
+        <label for="city">City</label>
+        <input type="text" name="city" />
+      </div>
+
+      <div>
+        <label for="state">State</label>
+        <input type="text" name="state" />
+      </div>
+
+      <div>
+        <label for="duration">Time</label>
+        <input type="time" name="duration" id="time" placeholder="Time" />
+      </div>
+
+      <div>
+        <label for="summary">Summary</label>
+        <input type="text" name="summary" />
+      </div>
+
+      <div>
+        <label for="text">Incident</label>
+        <textarea name="text"></textarea>
+      </div>
+
+      <button type="submit" value="submit">Submit</button>
+    </form>
   </body>
 </html>
