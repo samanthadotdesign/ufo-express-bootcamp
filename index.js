@@ -92,7 +92,6 @@ app.post('/contribute', (req, res) => {
 // contribute/720
 // Renders contribution page
 app.get('/contribute/:index', (req, res) => {
-  console.log(req.params);
   // Request.params { index: '0' }
 
   const i = Object.values(req.params)[0];
@@ -108,44 +107,64 @@ app.get('/contribute/:index', (req, res) => {
 
     const outputContent = {
       index: i,
-      date: sightingObject.date_time,
+      date: sightingObject.date,
+      time: sightingObject.time,
+      location: sightingObject.location,
       shape: sightingObject.shape,
-      observed: '',
-      weather: '',
+      duration: sightingObject.duration,
       summary: sightingObject.summary,
       text: sightingObject.text,
-      duration: sightingObject.duration,
-      city: sightingObject.city,
-      state: sightingObject.state,
     };
 
     res.render('view-contribution', outputContent);
   });
 });
 
+// Render Current Data in Edit Form
 app.get('/contribute/:index/edit', (req, res) => {
-  res.render('edit-contribution', { index: req.params.index });
+  const { index } = req.params;
+  // Retrieve current data and render it
+  read('contributions.json', (err, content) => {
+    const contribution = content.contributions[index];
+    // Pass the index to the edit form for the PUT request URL.
+    contribution.index = index;
+    const ejsData = { contribution };
+    res.render('edit-contribution', ejsData);
+  });
 });
 
 // Edit the data from submission
-app.put('/contribute/:index', (req, res) => {
+app.put('/contribute/:index/edit', (req, res) => {
+  // Object destructuring on req.params, extracting the index key, index is the actual number
+  // const index = req.params.index
   const { index } = req.params;
-  console.log(index);
 
   edit(
     'contributions.json',
-    // Read callback
     (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(req.body);
+      // Modifying contents of the file inside the data variable
       data.contributions[index] = req.body;
     },
-    // Write callback
     (err) => {
-      res.send('done!');
+      if (err) {
+        console.log(err);
+      }
+      // res.send('send');
+      res.redirect(303, `/submitted/${index}`);
     },
   );
 });
-/*
+
+app.get('/submitted/:index', (req, res) => {
+  const { index } = req.params;
+  res.render('submitted', { index });
+});
+
 // Delete the data from submission
 app.delete();
-*/
+
 app.listen(3004);

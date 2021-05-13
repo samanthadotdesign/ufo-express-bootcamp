@@ -1,15 +1,284 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;1,100&display=swap");
 
 @font-face {
   font-family: "Minecraft Italic";
   src: url("./assets/MinecraftItalic.woff2") format("woff2");
 }
 
-h1 {
-  font-family: "Minecraft Italic", monospace;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+  --font-small: 0.85rem;
+  --bold: "Minecraft Italic";
+  --monospace: "IBM Plex Mono", monospace;
+}
+
+html {
+  --black: #141414;
+  --darkest-gray: #202124;
+  --dark-gray: #333;
+  --gray: #484848;
+  --light-gray: #ababab;
+  --white: white;
+}
+
+/* ====== CONTENT ====== */
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  align-items: baseline;
+  background-color: var(--black);
+  color: var(--white);
+  display: block;
+  margin: 0 auto;
+}
+
+/* ====== TYPOGRAPHY ====== */
+
+html {
+  font-size: 14px;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  font-family: var(--monospace);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.325;
+}
+
+h1,
+.h1,
+h2,
+h3,
+span.title {
+  font-family: var(--bold);
+}
+
+h1,
+.h1,
+span.title {
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1;
+  border-bottom: none;
+}
+
+.h1:hover {
+  color: var(--light-gray);
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+h3 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+a {
+  font-style: italic;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--gray);
+  position: relative;
+}
+
+a:hover {
+  color: var(--light-gray);
+  border-bottom: 0.5px solid var(--dark-gray);
+  cursor: pointer;
+}
+
+/* ====== HEADER ====== */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 24px 16px;
+}
+
+nav a,
+nav a:hover {
+  margin: 0 12px 0 0;
+  border-bottom: none;
+  font-style: italic;
+  text-align: right;
+}
+
+/* ====== PAGE CONTAINER ====== */
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-div {
+  max-width: 50vw;
+}
+
+@media screen and (max-width: 580px) {
+  .form-div {
+    min-width: 100vw;
+    padding: 0 16px;
+  }
+}
+
+/* ====== INPUT FIELDS ====== */
+
+label,
+span.label {
+  font-size: 10px;
+  color: var(--light-gray);
+  padding-bottom: 4px;
+}
+
+input,
+textarea,
+span.input {
+  font-family: var(--monospace);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.325;
+}
+
+input,
+textarea {
+  background-color: var(--black);
+  color: var(--white);
+
+  margin-bottom: 12px;
+  outline: none;
+
+  width: 100%;
+  border: none;
+  border-style: none;
+  border-bottom: 1px solid var(--dark-gray);
+}
+
+input:hover {
+  border-bottom: 1px solid var(--gray);
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(35%);
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+/* ====== RULES ====== */
+
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--gray);
+  margin: 1.5rem 0;
+}
+
+/* ====== MEDIA ====== */
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* ========== CONTRIBUTE PAGE ======== */
+
+button {
+  background: var(--gray);
+  color: var(--white);
+  width: 100%;
+  padding: 6px;
+  font-family: var(--monospace);
+  text-decoration: none;
+  margin-bottom: 20px;
+  border: 0px;
+}
+
+button:hover {
+  background: var(--dark-gray);
+}
+
+/* ====== TABLE DIRECTORY ====== */
+
+.wrapper {
+  margin: 0 auto;
+  min-width: 100%;
+}
+
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  display: table;
+}
+
+.row {
+  display: table-row;
+  border-bottom: 1px solid var(--gray);
+}
+
+.row:nth-of-type(odd) {
+  background: var(--darkest-gray);
+}
+
+.row.header {
+  font-style: italic;
+  background: #000;
+  border-bottom: 1px solid var(--gray);
+}
+
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 14px 0 8px;
+  }
+
+  .row.header {
+    padding: 0;
+    height: 6px;
+  }
+
+  .row.cell {
+    margin-bottom: 10px;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 8px 16px;
+    display: block;
+  }
 }

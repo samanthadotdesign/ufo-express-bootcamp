@@ -8,43 +8,68 @@
     <link rel="stylesheet" href="/styles.css" type="text/css" />
   </head>
   <body>
+    <%- include ("../templates/header") -%>
     <h1>Edit Contribution</h1>
-    <form action="/contribute/<%= index %>?method=PUT" method="POST">
-      <div>
-        <label for="date">Date</label>
-        <input type="date" name="date" />
-      </div>
-      <div>
-        <label for="time">Time</label>
-        <input type="time" name="time" />
-      </div>
 
-      <div>
-        <label for="city">City</label>
-        <input type="text" name="city" />
-      </div>
+    <div class="main-div">
+      <div class="form-div">
+        <form
+          action="/contribute/<%= contribution.index %>/edit?_method=PUT"
+          method="POST"
+        >
+          <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" value="<%= contribution.date %>" />
+          </div>
+          <div>
+            <label for="time">Time</label>
+            <input type="time" name="time" value="<%= contribution.time  %> " />
+          </div>
 
-      <div>
-        <label for="state">State</label>
-        <input type="text" name="state" />
-      </div>
+          <div>
+            <label for="location">Location</label>
+            <input
+              type="text"
+              name="location"
+              value="<%= contribution.location %> "
+            />
+          </div>
 
-      <div>
-        <label for="duration">Time</label>
-        <input type="time" name="duration" id="time" placeholder="Time" />
-      </div>
+          <div>
+            <label for="shape">Shape</label>
+            <input
+              type="text"
+              name="shape"
+              value="<%= contribution.shape  %> "
+            />
+          </div>
 
-      <div>
-        <label for="summary">Summary</label>
-        <input type="text" name="summary" />
-      </div>
+          <div>
+            <label for="duration">Duration</label>
+            <input
+              type="text"
+              name="time"
+              value="<%= contribution.duration %> "
+            />
+          </div>
 
-      <div>
-        <label for="text">Incident</label>
-        <textarea name="text"></textarea>
-      </div>
+          <div>
+            <label for="summary">Summary</label>
+            <input
+              type="text"
+              name="summary"
+              value="<%= contribution.summary %> "
+            />
+          </div>
 
-      <button type="submit" value="submit">Submit</button>
-    </form>
+          <div>
+            <label for="text">Incident</label>
+            <textarea name="text" rows="5"><%= contribution.text %> </textarea>
+          </div>
+
+          <button type="submit" value="submit">Save</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="/styles.css" type="text/css" />
   </head>
   <body>
-    <h1>Thank you for your contribution!</h1>
-    <p>We will review your submission before we add it to our database.</p>
+    <%- include('../templates/header'); -%>
 
-    <p><%= date %></p>
-    <div>
-      <p><%= index %></p>
-      <a href="/contribute/<%= index %>" class="button">View Contribution</a>
-      <a href="/contribute/<%= index %>/edit " class="button"
-        >Edit Contribution</a
-      >
+    <div class="main-div">
+      <h1>Thank you for your contribution!</h1>
+      <p>We will review your submission before we add it to our database.</p>
+
+      <div>
+        <a href="/contribute/<%= index %>" class="button">View Contribution</a>
+        <a href="/contribute/<%= index %>/edit " class="button"
+          >Edit Contribution</a
+        >
+      </div>
     </div>
   </body>
 </html>

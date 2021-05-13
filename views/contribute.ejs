@@ -5,63 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" type="text/css" />
-    <script
-      src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"
-    >
-      var timepicker = document.getElementById('timepicker')
-      var timepicker = new TimePicker(".field", {
-        theme: "dark",
-        lang: "pt",
-      });
-      timepicker.on("change", function (evt) {
-        var value = (evt.hour || "00") + ":" + (evt.minute || "00");
-        evt.element.value = value;
-      });
-    </script>
 
     <title>Contribute Sighting</title>
   </head>
   <body>
-    <header>
+    <%- include('../templates/header'); -%>
+
+    <div class="main-div">
       <h1>Contribute Sighting</h1>
-    </header>
-    <!-- Form for the main /sighting URL -->
-    <form action="/contribute" method="POST">
-      <div>
-        <label for="date">Date</label>
-        <input type="date" name="date" />
-      </div>
-      <div>
-        <label for="time">Time</label>
-        <input type="time" name="time" />
-      </div>
+      <div class="form-div">
+        <!-- Form for the main /sighting URL -->
+        <form action="/contribute" method="POST">
+          <div class="input-div">
+            <label for="date">Date</label>
+            <input type="date" name="date" />
+          </div>
+          <div class="input-div">
+            <label for="time">Time</label>
+            <input type="time" name="time" />
+          </div>
 
-      <div>
-        <label for="city">City</label>
-        <input type="text" name="city" />
-      </div>
+          <div class="input-div">
+            <label for="location">Location</label>
+            <input type="text" name="location" />
+          </div>
 
-      <div>
-        <label for="state">State</label>
-        <input type="text" name="state" />
-      </div>
+          <div class="input-div">
+            <label for="shape">Shape</label>
+            <input type="text" name="shape" />
+          </div>
 
-      <div>
-        <label for="duration">Time</label>
-        <input type="text" id="timepicker" placeholder="Time" />
-      </div>
+          <div class="input-div">
+            <label for="duration">Duration</label>
+            <input type="text" name="duration" />
+          </div>
 
-      <div>
-        <label for="summary">Summary</label>
-        <input type="text" name="summary" />
-      </div>
+          <div class="input-div">
+            <label for="summary">Summary</label>
+            <input type="text" name="summary" />
+          </div>
 
-      <div>
-        <label for="text">Incident</label>
-        <textarea name="text"></textarea>
-      </div>
+          <div class="input-div">
+            <label for="text">Incident</label>
+            <textarea name="text" rows="5"></textarea>
+          </div>
 
-      <button type="submit" value="submit">Submit</button>
-    </form>
+          <button type="submit" value="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
