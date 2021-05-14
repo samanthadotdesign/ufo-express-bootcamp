@@ -13,7 +13,14 @@
     <div class="wrapper">
       <div class="table">
         <div class="row header">
-          <div class="cell cell-header">Year</div>
+          <div class="cell cell-header">
+            Year
+            <div class="tooltip">
+              <a href="/?sort=<%= toggle.value %> " class="icon"
+                ><%= toggle.icon %> <span class="tooltip-text"><%= toggle.tooltip %> </span></a
+              >
+            </div>
+          </div>
           <div class="cell cell-header">Shape</div>
           <div class="cell cell-header">Observation</div>
           <div class="cell cell-header">Weather</div>

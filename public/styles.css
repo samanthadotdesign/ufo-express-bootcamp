@@ -72,7 +72,7 @@ span.title {
 }
 
 .cell-header {
-  font-size: 12px;
+  font-size: 10px;
   font-style: normal;
 }
 
@@ -94,7 +94,6 @@ h3 {
 }
 
 a {
-  font-style: italic;
   color: var(--white);
   text-decoration: none;
   border-bottom: 0.5px solid var(--gray);
@@ -107,6 +106,9 @@ a:hover {
   cursor: pointer;
 }
 
+a.icon {
+  border-bottom: none;
+}
 /* ====== HEADER ====== */
 
 header {
@@ -120,9 +122,43 @@ header {
 nav a,
 nav a:hover {
   margin: 0 12px 0 0;
+  font-size: 12px;
   border-bottom: none;
   font-style: italic;
   text-align: right;
+}
+
+/* ====== TOOLTIP IN HEADER ====== */
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  font-size: 10px;
+  font-style: normal;
+  background-color: #000;
+  color: var(--white);
+  text-align: left;
+  padding: 4px 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -20px;
+  /* Use half of the width to center the tooltip but this is off-center*/
+
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
 }
 
 /* ====== PAGE CONTAINER ====== */
@@ -251,14 +287,8 @@ button:hover {
   border-bottom: 1px solid var(--gray);
 }
 
-.row:nth-of-type(odd) {
-  background: var(--darkest-gray);
-}
-
 .row.header {
   font-style: italic;
-  background: #000;
-  border-bottom: 1px solid var(--gray);
 }
 
 @media screen and (max-width: 580px) {
@@ -277,13 +307,22 @@ button:hover {
 }
 
 .cell {
-  padding: 6px 12px;
+  padding: 12px 12px;
   display: table-cell;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 @media screen and (max-width: 580px) {
   .cell {
     padding: 8px 16px;
     display: block;
+    border-bottom: none;
+  }
+  .cell:nth-last-of-type(1) {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .row.header {
+    display: none;
   }
 }

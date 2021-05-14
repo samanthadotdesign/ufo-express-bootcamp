@@ -18,15 +18,46 @@ app.use(methodOverride('_method'));
 
 /* -------- MAIN PAGE -------- */
 
+// Helper function for sort
+const sortDate = (obj1, obj2) => {
+  if (obj1.date_time < obj2.date_time) {
+    return -1;
+  }
+   if (obj1.date_time > obj2.date_time) {
+     return 1;
+   }
+   return 0;
+}
+
 // Renders the homepage, list of all sightings
 app.get('/', (req, res) => {
+  
   read('data.json', (err, content) => {
     if (err) {
       return console.error(err);
     }
-    // If the key sort is in req.query
-    // inspect value of the sort
-    // content.sightings.sort() – does not manipualte the original data.json bc we're not writing in it - manipulating the array in the program
+
+    // Dynamically toggle ↑ ↓ arrows
+    content.toggle = {};
+    content.toggle.icon = '↑'
+    content.toggle.value = 'asc'
+    content.toggle.tooltip = 'Sort oldest to latest'
+
+    // If the key sort is in req.query, inspect the value of sort
+    if(req.query.sort) {
+      if (req.query.sort === 'asc') {
+        content.sightings.sort(sortDate);
+        
+        // Put the toggle in the opposite direction
+        content.toggle.icon = '↓'
+        content.toggle.value = 'desc'
+        content.toggle.tooltip = 'Sort latest to oldest'
+      } 
+      else if (req.query.sort === 'desc') {
+        content.sightings.sort(sortDate).reverse();
+      }
+    }
+    // content.sightings.sort() – does not manipualte the original data.json bc we're not writing in it - manipulating the array in the program via content
     res.render('index', content);
   });
 });
@@ -188,5 +219,7 @@ app.delete('/contribute/:index', (req, res) => {
 app.get('/deleted', (req, res) => {
   res.render('deleted', {});
 });
+
+/* -------- LISTEN -------- */
 
 app.listen(3004);
