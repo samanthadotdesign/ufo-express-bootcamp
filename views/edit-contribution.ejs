@@ -67,7 +67,13 @@
             <textarea name="text" rows="5"><%= contribution.text %> </textarea>
           </div>
 
-          <button type="submit" value="submit">Save</button>
+          <button type="save" value="save">Save</button>
+        </form>
+        <form
+          action="/contribute/<%= contribution.index %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit" value="delete">Delete</button>
         </form>
       </div>
     </div>

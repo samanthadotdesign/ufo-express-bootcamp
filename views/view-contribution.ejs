@@ -53,7 +53,9 @@
 
         <div class="button-horizontal-fieldset">
           <a href="/contribute/<%= index %>/edit" class="button">Edit</a>
-          <a href="/contribute/<%= index %>/delete" class="button">Delete</a>
+          <form method="POST" action="/contribute/<%= index %>?_method=DELETE">
+            <button type="submit">Delete</button>
+          </form>
         </div>
       </div>
     </div>

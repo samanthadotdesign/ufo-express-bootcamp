@@ -71,6 +71,11 @@ span.title {
   border-bottom: none;
 }
 
+.cell-header {
+  font-size: 12px;
+  font-style: normal;
+}
+
 .h1:hover {
   color: var(--light-gray);
   border-bottom: none;

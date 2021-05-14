@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     if (err) {
       return console.error(err);
     }
+    
+    // If the key sort is in req.query
+    // inspect value of the sort 
+    // content.sightings.sort() – does not manipualte the original data.json bc we're not writing in it - manipulating the array in the program 
     res.render('index', content);
   });
 });
@@ -153,7 +157,6 @@ app.put('/contribute/:index/edit', (req, res) => {
       if (err) {
         console.log(err);
       }
-      // res.send('send');
       res.redirect(303, `/submitted/${index}`);
     },
   );
@@ -165,6 +168,28 @@ app.get('/submitted/:index', (req, res) => {
 });
 
 // Delete the data from submission
-app.delete();
+app.delete('/contribute/:index', (req, res) => {
+  const { index } = req.params;
+
+  edit(
+    'contributions.json',
+    // Read callback
+    (err, data) => {
+      data.contributions.splice(index, 1);
+      console.log('this was deleted');
+    },
+
+    // Write callback
+    (err) => {
+      res.redirect(303, '/deleted');
+    },
+  );
+});
+
+app.get('/deleted', (req, res) => {
+  res.render('deleted', {});
+});
+
+
 
 app.listen(3004);
