@@ -69,11 +69,9 @@
 
           <button type="save" value="save">Save</button>
         </form>
-        <form
-          action="/contribute/<%= contribution.index %>?_method=DELETE"
-          method="POST"
-        >
-          <button type="submit" value="delete">Delete</button>
+          <form method="POST" action="/contribute/<%= contribution.index %>?_method=DELETE">
+            <button type="submit">Delete</button>
+          </form>
         </form>
       </div>
     </div>

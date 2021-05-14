@@ -24,10 +24,9 @@ app.get('/', (req, res) => {
     if (err) {
       return console.error(err);
     }
-    
     // If the key sort is in req.query
-    // inspect value of the sort 
-    // content.sightings.sort() – does not manipualte the original data.json bc we're not writing in it - manipulating the array in the program 
+    // inspect value of the sort
+    // content.sightings.sort() – does not manipualte the original data.json bc we're not writing in it - manipulating the array in the program
     res.render('index', content);
   });
 });
@@ -189,7 +188,5 @@ app.delete('/contribute/:index', (req, res) => {
 app.get('/deleted', (req, res) => {
   res.render('deleted', {});
 });
-
-
 
 app.listen(3004);
