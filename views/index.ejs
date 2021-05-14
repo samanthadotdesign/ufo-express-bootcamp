@@ -30,24 +30,26 @@
 
         <% sightings.forEach((sightingObj,i) => { %>
         <!-- How do you add the link for the whole row -->
-        <div class="row">
-          <div class="cell" data-title="Year">
-            <a href="/sighting/<%= i %>"><%= sightingObj.date_time %> </a>
+        <!-- <a class="row" href="/sighting/ i " > -->
+          <div class="row entry" >
+            <div class="cell" data-title="Year">
+              <%= sightingObj.date_time %> 
+            </div>
+            <div class="cell" data-title="Object Shape">
+              <%= sightingObj.shape %>
+            </div>
+            <div class="cell" data-title="How Observed">
+              <%= sightingObj.observed %>
+            </div>
+            <div class="cell" data-title="Weather">
+              <%= sightingObj.weather %>
+            </div>
+            <div class="cell" data-title="Location"><%= sightingObj.state %></div>
+            <div class="cell" data-title="Summary">
+              <%= sightingObj.summary %>
+            </div>
           </div>
-          <div class="cell" data-title="Object Shape">
-            <%= sightingObj.shape %>
-          </div>
-          <div class="cell" data-title="How Observed">
-            <%= sightingObj.observed %>
-          </div>
-          <div class="cell" data-title="Weather">
-            <%= sightingObj.weather %>
-          </div>
-          <div class="cell" data-title="Location"><%= sightingObj.state %></div>
-          <div class="cell" data-title="Summary">
-            <%= sightingObj.summary %>
-          </div>
-        </div>
+        <!-- </a> -->
         <% }); %>
       </div>
     </div>
