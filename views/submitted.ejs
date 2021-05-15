@@ -8,18 +8,23 @@
     <link rel="stylesheet" href="/styles.css" type="text/css" />
   </head>
   <body>
-    <%- include('../templates/header'); -%>
+    <div class="canvas-holder">
+      <canvas></canvas>
+    </div>
 
-    <div class="main-div">
-      <h1>Thank you for your contribution!</h1>
+    <%- include('../templates/header'); -%>
+    <div class="info">
+      <h1>Thank you for reporting a UFO.</h1>
       <p>We will review your submission before we add it to our database.</p>
 
       <div>
-        <a href="/contribute/<%= index %>" class="button">View Contribution</a>
-        <a href="/contribute/<%= index %>/edit " class="button"
-          >Edit Contribution</a
-        >
+        <a href="/contribute/<%= index %>" class="icon">👀</a>
+        <a href="/contribute/<%= index %>/edit " class="icon">✏️</a>
       </div>
     </div>
   </body>
 </html>
+
+<script src="/glslcanvas.min.js"></script>
+<script src="/frag.js"></script>
+<script src="/canvas.js"></script>

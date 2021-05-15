@@ -106,7 +106,7 @@ a:hover {
   cursor: pointer;
 }
 
-a.icon {
+a.icon-sort {
   border-bottom: none;
 }
 /* ====== HEADER ====== */
@@ -117,6 +117,7 @@ header {
   align-items: center;
   height: 40px;
   padding: 24px 16px;
+  background-color: var(--black);
 }
 
 nav a,
@@ -128,7 +129,11 @@ nav a:hover {
   text-align: right;
 }
 
-/* ====== TOOLTIP IN HEADER ====== */
+button.icon {
+  margin: 24px 12px 0 0;
+}
+
+/* ====== TOOLTIP ====== */
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -139,21 +144,28 @@ nav a:hover {
 .tooltip .tooltip-text {
   visibility: hidden;
   width: max-content;
-  font-size: 10px;
+  font-size: 8px;
   font-style: normal;
   background-color: #000;
   color: var(--white);
   text-align: left;
   padding: 4px 6px;
-
-  /* Position the tooltip text - see examples below! */
   position: absolute;
-  top: 100%;
+  z-index: 1;
+}
+
+.tooltip-below {
+  top: calc(100% + 4px);
   left: 50%;
   margin-left: -20px;
   /* Use half of the width to center the tooltip but this is off-center*/
+}
 
-  z-index: 1;
+.tooltip-top {
+  bottom: calc(100% + 10px);
+  right: 50%;
+  margin-right: -10px;
+  /* Use half of the width to center the tooltip but this is off-center*/
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -162,20 +174,35 @@ nav a:hover {
 }
 
 /* ====== PAGE CONTAINER ====== */
-.main-div {
+/* .main-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .form-div {
-  max-width: 50vw;
+  position: absolute;
+  top: 60px;
+  right: 24px;
+  padding: 24px;
+  z-index: 1;
+  min-width: 40vw;
+  background-color: var(--black);
+  border: 1px solid var(--gray);
+  margin-bottom: 60px;
+}
+
+.form-div h1 {
+  margin: 0 0 24px 0;
 }
 
 @media screen and (max-width: 580px) {
   .form-div {
-    min-width: 100vw;
-    padding: 0 16px;
+    right: 20px;
+    left: 20px;
+    margin: auto;
+    min-width: 80vw;
+    padding: 16px;
   }
 }
 
@@ -202,7 +229,7 @@ textarea {
   background-color: var(--black);
   color: var(--white);
 
-  margin-bottom: 12px;
+  /* margin-bottom: 2px; */
   outline: none;
 
   width: 100%;
@@ -248,19 +275,19 @@ img {
 
 /* ========== CONTRIBUTE PAGE ======== */
 
-button {
-  background: var(--gray);
+button.submit-btn {
+  background: var(--black);
   color: var(--white);
   width: 100%;
   padding: 6px;
   font-family: var(--monospace);
   text-decoration: none;
-  margin-bottom: 20px;
-  border: 0px;
+  border: 1px solid var(--white);
+  margin-top: 16px;
 }
 
 button:hover {
-  background: var(--dark-gray);
+  background: var(--darkest-gray);
 }
 
 /* ====== TABLE DIRECTORY ====== */
@@ -288,7 +315,7 @@ button:hover {
   background-color: transparent;
 }
 
-.row.entry:hover{
+.row.entry:hover {
   background-color: var(--darkest-gray);
   cursor: pointer;
 }
@@ -331,4 +358,106 @@ button:hover {
   .row.header {
     display: none;
   }
+}
+
+/* ====== FOOTER ====== */
+
+.content {
+  min-height: calc(100vh - 40px);
+}
+
+.footer-div {
+  border-top: 1px solid var(--darkest-gray);
+  background-color: var(--black)
+  min-width: 100vw;
+  padding: 12px 6px;
+  direction: rtl;
+}
+
+footer a.button,
+a.icon,
+button.icon {
+  cursor: pointer;
+  padding: 4px 6px;
+  border: 1px solid var(--light-gray);
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in;
+  background-color: transparent;
+}
+
+form.button {
+  display: inline;
+}
+
+footer a.button:hover,
+a.icon:hover,
+button.icon:hover {
+  background-color: var(--dark-gray);
+}
+
+
+/* ====== BUTTON FIELDSET ====== */
+
+.btn-horizontal-fieldset {
+  display: flex;
+}
+
+
+/* ====== KALEIDESCOPE ====== */
+
+div.canvas-holder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+div.canvas-holder canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 100px), -50%);
+}
+
+div.info {
+  position: fixed;
+  border: 1px solid var(--gray);
+  background-color: var(--black);
+  top: 72px;
+  right: 24px;
+  max-width: 200px;
+  height: calc(100vh - 120px);
+  padding: 24px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ====== DELETE PAGE ====== */
+ 
+.delete-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.delete-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  max-width: 240px;
+  min-height: 240px;
+  padding: 48px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 50%;
+  text-align: center;
+}
+.right-icon {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
 }

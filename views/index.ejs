@@ -8,32 +8,35 @@
     <title>UFO Sightings Directory</title>
   </head>
   <body>
-    <%- include('../templates/header'); -%>
-
-    <div class="wrapper">
-      <div class="table">
-        <div class="row header">
-          <div class="cell cell-header">
-            Year
-            <div class="tooltip">
-              <a href="/?sort=<%= toggle.value %> " class="icon"
-                ><%= toggle.icon %> <span class="tooltip-text"><%= toggle.tooltip %> </span></a
-              >
+    <div class="content">
+      <%- include('../templates/header'); -%>
+      <div class="wrapper">
+        <div class="table">
+          <div class="row header">
+            <div class="cell cell-header">
+              Date
+              <div class="tooltip">
+                <a href="/?sort=<%= toggle.value %> " class="icon-sort"
+                  ><%= toggle.icon %>
+                  <span class="tooltip-text tooltip-below"
+                    ><%= toggle.tooltip %>
+                  </span></a
+                >
+              </div>
             </div>
+            <div class="cell cell-header">Shape</div>
+            <div class="cell cell-header">Observation</div>
+            <div class="cell cell-header">Weather</div>
+            <div class="cell cell-header">Location</div>
+            <div class="cell cell-header">Summary</div>
           </div>
-          <div class="cell cell-header">Shape</div>
-          <div class="cell cell-header">Observation</div>
-          <div class="cell cell-header">Weather</div>
-          <div class="cell cell-header">Location</div>
-          <div class="cell cell-header">Summary</div>
-        </div>
 
-        <% sightings.forEach((sightingObj,i) => { %>
-        <!-- How do you add the link for the whole row -->
-        <!-- <a class="row" href="/sighting/ i " > -->
-          <div class="row entry" >
+          <% sightings.forEach((sightingObj,i) => { %>
+          <!-- How do you add the link for the whole row -->
+          <!-- <a class="row" href="/sighting/ i " > -->
+          <div class="row entry">
             <div class="cell" data-title="Year">
-              <%= sightingObj.date_time %> 
+              <%= sightingObj.date_time %>
             </div>
             <div class="cell" data-title="Object Shape">
               <%= sightingObj.shape %>
@@ -44,14 +47,18 @@
             <div class="cell" data-title="Weather">
               <%= sightingObj.weather %>
             </div>
-            <div class="cell" data-title="Location"><%= sightingObj.state %></div>
+            <div class="cell" data-title="Location">
+              <%= sightingObj.state %>
+            </div>
             <div class="cell" data-title="Summary">
               <%= sightingObj.summary %>
             </div>
           </div>
-        <!-- </a> -->
-        <% }); %>
+          <!-- </a> -->
+          <% }); %>
+        </div>
       </div>
     </div>
+    <%- include ('../templates/footer') -%>
   </body>
 </html>

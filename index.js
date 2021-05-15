@@ -23,15 +23,14 @@ const sortDate = (obj1, obj2) => {
   if (obj1.date_time < obj2.date_time) {
     return -1;
   }
-   if (obj1.date_time > obj2.date_time) {
-     return 1;
-   }
-   return 0;
-}
+  if (obj1.date_time > obj2.date_time) {
+    return 1;
+  }
+  return 0;
+};
 
 // Renders the homepage, list of all sightings
 app.get('/', (req, res) => {
-  
   read('data.json', (err, content) => {
     if (err) {
       return console.error(err);
@@ -39,20 +38,20 @@ app.get('/', (req, res) => {
 
     // Dynamically toggle ↑ ↓ arrows
     content.toggle = {};
-    content.toggle.icon = '↑'
-    content.toggle.value = 'asc'
-    content.toggle.tooltip = 'Sort oldest to latest'
+    content.toggle.icon = '↑';
+    content.toggle.value = 'asc';
+    content.toggle.tooltip = 'Sort oldest to latest';
 
     // If the key sort is in req.query, inspect the value of sort
-    if(req.query.sort) {
+    if (req.query.sort) {
       if (req.query.sort === 'asc') {
         content.sightings.sort(sortDate);
-        
+
         // Put the toggle in the opposite direction
-        content.toggle.icon = '↓'
-        content.toggle.value = 'desc'
-        content.toggle.tooltip = 'Sort latest to oldest'
-      } 
+        content.toggle.icon = '↓';
+        content.toggle.value = 'desc';
+        content.toggle.tooltip = 'Sort latest to oldest';
+      }
       else if (req.query.sort === 'desc') {
         content.sightings.sort(sortDate).reverse();
       }

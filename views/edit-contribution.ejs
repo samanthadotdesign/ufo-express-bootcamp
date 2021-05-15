@@ -8,72 +8,79 @@
     <link rel="stylesheet" href="/styles.css" type="text/css" />
   </head>
   <body>
+    <div class="canvas-holder">
+      <canvas></canvas>
+    </div>
+
     <%- include ("../templates/header") -%>
-    <h1>Edit Contribution</h1>
+    <div class="form-div">
+      <h1>Edit Contribution</h1>
 
-    <div class="main-div">
-      <div class="form-div">
+      <form
+        action="/contribute/<%= contribution.index %>/edit?_method=PUT"
+        method="POST"
+      >
+        <div>
+          <label for="date">Date</label>
+          <input type="date" name="date" value="<%= contribution.date %>" />
+        </div>
+        <div>
+          <label for="time">Time</label>
+          <input type="time" name="time" value="<%= contribution.time  %> " />
+        </div>
+
+        <div>
+          <label for="location">Location</label>
+          <input
+            type="text"
+            name="location"
+            value="<%= contribution.location %> "
+          />
+        </div>
+
+        <div>
+          <label for="shape">Shape</label>
+          <input type="text" name="shape" value="<%= contribution.shape  %> " />
+        </div>
+
+        <div>
+          <label for="duration">Duration</label>
+          <input
+            type="text"
+            name="time"
+            value="<%= contribution.duration %> "
+          />
+        </div>
+
+        <div>
+          <label for="summary">Summary</label>
+          <input
+            type="text"
+            name="summary"
+            value="<%= contribution.summary %> "
+          />
+        </div>
+
+        <div>
+          <label for="text">Incident</label>
+          <textarea name="text" rows="5"><%= contribution.text %> </textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Save</button>
+      </form>
+
+      <div class="right-icon">
         <form
-          action="/contribute/<%= contribution.index %>/edit?_method=PUT"
           method="POST"
+          action="/contribute/<%= contribution.index %>?_method=DELETE"
         >
-          <div>
-            <label for="date">Date</label>
-            <input type="date" name="date" value="<%= contribution.date %>" />
-          </div>
-          <div>
-            <label for="time">Time</label>
-            <input type="time" name="time" value="<%= contribution.time  %> " />
-          </div>
-
-          <div>
-            <label for="location">Location</label>
-            <input
-              type="text"
-              name="location"
-              value="<%= contribution.location %> "
-            />
-          </div>
-
-          <div>
-            <label for="shape">Shape</label>
-            <input
-              type="text"
-              name="shape"
-              value="<%= contribution.shape  %> "
-            />
-          </div>
-
-          <div>
-            <label for="duration">Duration</label>
-            <input
-              type="text"
-              name="time"
-              value="<%= contribution.duration %> "
-            />
-          </div>
-
-          <div>
-            <label for="summary">Summary</label>
-            <input
-              type="text"
-              name="summary"
-              value="<%= contribution.summary %> "
-            />
-          </div>
-
-          <div>
-            <label for="text">Incident</label>
-            <textarea name="text" rows="5"><%= contribution.text %> </textarea>
-          </div>
-
-          <button type="save" value="save">Save</button>
-        </form>
-          <form method="POST" action="/contribute/<%= contribution.index %>?_method=DELETE">
-            <button type="submit">Delete</button>
-          </form>
+          <button type="submit" class="icon">💩</button>
         </form>
       </div>
     </div>
   </body>
 </html>
+
+<script src="/glslcanvas.min.js"></script>
+<script src="/frag.js"></script>
+<script src="/canvas.js"></script>
