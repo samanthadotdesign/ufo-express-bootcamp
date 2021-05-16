@@ -7,29 +7,38 @@
     <title>Edit Contribution</title>
     <link rel="stylesheet" href="/styles.css" type="text/css" />
   </head>
+
   <body>
     <div class="canvas-holder">
       <canvas></canvas>
     </div>
 
     <%- include ("../templates/header") -%>
-    <div class="form-div">
-      <h1>Edit Contribution</h1>
 
+    <div class="form-div">
+      <div class="text-icon-div">
+        <h1 class="icon-row">Edit Contribution</h1>
+        <form
+          method="POST"
+          action="/contribute/<%= contribution.index %>?_method=DELETE"
+        >
+          <button type="submit" class="icon icon-row">💩</button>
+        </form>
+      </div>
       <form
         action="/contribute/<%= contribution.index %>/edit?_method=PUT"
         method="POST"
       >
-        <div>
+        <div class="input-div">
           <label for="date">Date</label>
           <input type="date" name="date" value="<%= contribution.date %>" />
         </div>
-        <div>
+        <div class="input-div">
           <label for="time">Time</label>
           <input type="time" name="time" value="<%= contribution.time  %> " />
         </div>
 
-        <div>
+        <div class="input-div">
           <label for="location">Location</label>
           <input
             type="text"
@@ -38,12 +47,12 @@
           />
         </div>
 
-        <div>
+        <div class="input-div">
           <label for="shape">Shape</label>
           <input type="text" name="shape" value="<%= contribution.shape  %> " />
         </div>
 
-        <div>
+        <div class="input-div">
           <label for="duration">Duration</label>
           <input
             type="text"
@@ -52,7 +61,7 @@
           />
         </div>
 
-        <div>
+        <div class="input-div">
           <label for="summary">Summary</label>
           <input
             type="text"
@@ -61,22 +70,13 @@
           />
         </div>
 
-        <div>
+        <div class="input-div">
           <label for="text">Incident</label>
           <textarea name="text" rows="5"><%= contribution.text %> </textarea>
         </div>
 
         <button type="submit" class="submit-btn">Save</button>
       </form>
-
-      <div class="right-icon">
-        <form
-          method="POST"
-          action="/contribute/<%= contribution.index %>?_method=DELETE"
-        >
-          <button type="submit" class="icon">💩</button>
-        </form>
-      </div>
     </div>
   </body>
 </html>

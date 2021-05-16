@@ -51,11 +51,18 @@
         <span class="input"><%= text %></span>
       </div>
 
-      <div class="btn-horizontal-fieldset"></div>
-        <a href="/contribute/<%= index %>/edit" class="icon">✏️</a>
-        <form method="POST" action="/contribute/<%= index %>?_method=DELETE" class="button">
-          <button type="submit" class="icon">💩</button>
+      <div class="btn-horizontal-fieldset">
+        <a href="/contribute/<%= index %>/edit" class="icon btn-horizontal"
+          >✏️</a
+        >
+        <form
+          method="POST"
+          action="/contribute/<%= index %>?_method=DELETE"
+          class="button btn-horizontal"
+        >
+          <button type="submit" class="icon icon-row">💩</button>
         </form>
+        <a href="/" class="icon btn-horizontal">🛸</a>
       </div>
     </div>
   </body>

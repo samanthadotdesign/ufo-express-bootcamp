@@ -133,6 +133,10 @@ button.icon {
   margin: 24px 12px 0 0;
 }
 
+button.icon.icon-row {
+  margin: 0px;
+}
+
 /* ====== TOOLTIP ====== */
 /* Tooltip container */
 .tooltip {
@@ -196,6 +200,10 @@ button.icon {
   margin: 0 0 24px 0;
 }
 
+h1.icon-row {
+  margin: 0px;
+}
+
 @media screen and (max-width: 580px) {
   .form-div {
     right: 20px;
@@ -228,10 +236,7 @@ input,
 textarea {
   background-color: var(--black);
   color: var(--white);
-
-  /* margin-bottom: 2px; */
   outline: none;
-
   width: 100%;
   border: none;
   border-style: none;
@@ -368,7 +373,7 @@ button:hover {
 
 .footer-div {
   border-top: 1px solid var(--darkest-gray);
-  background-color: var(--black)
+  background-color: var(--black);
   min-width: 100vw;
   padding: 12px 6px;
   direction: rtl;
@@ -395,13 +400,16 @@ button.icon:hover {
   background-color: var(--dark-gray);
 }
 
-
 /* ====== BUTTON FIELDSET ====== */
 
 .btn-horizontal-fieldset {
   display: flex;
+  justify-content: flex-start;
 }
 
+.btn-horizontal {
+  margin: 0 12px 0 0;
+}
 
 /* ====== KALEIDESCOPE ====== */
 
@@ -436,7 +444,7 @@ div.info {
 }
 
 /* ====== DELETE PAGE ====== */
- 
+
 .delete-container {
   display: flex;
   justify-content: center;
@@ -456,8 +464,13 @@ div.info {
   border-radius: 50%;
   text-align: center;
 }
-.right-icon {
+
+/* ===== EDIT PAGE ===== */
+
+.text-icon-div {
   display: flex;
-  justify-content: flex-end;
-  margin-top: -8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 24px 0;
 }

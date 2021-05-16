@@ -22,7 +22,7 @@ window.addEventListener('resize', () => {
 
 sandbox.load(frag);
 
-const images = ['../assets/glitch.jpeg', '../assets/black.jpeg', '../assets/space.jpeg', '../assets/hubble.jpeg'];
+const images = ['../assets/glitch.jpeg', '../assets/space.jpeg', '../assets/hubble.jpeg'];
 let current = 0;
 
 canvas.addEventListener('click', () => {
