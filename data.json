@@ -165,6 +165,83 @@
       "duration": "4 seconds",
       "summary": "1 very bright, large object",
       "image": "/public/assets/images/DEFE-24-1958-1_7-15.jpg"
+    },
+    {
+      "text": "Taxi driver and 2 passengers",
+      "observed": "Naked eye",
+      "weather": "",
+      "date_time": "1988/07/29 0:00",
+      "location": "North Nottingham",
+      "shape": "Rectangle",
+      "duration": "Seconds",
+      "summary": "",
+      "image": "/public/assets/images/1.jpg"
+    },
+    {
+      "text": "",
+      "observed": "Naked eye",
+      "weather": "Low cloud. Intermittent moonlight through breaks in cloud. No rain.",
+      "date_time": "1988/07/28",
+      "location": "North Dartmoor",
+      "shape": "Lights",
+      "duration": "",
+      "summary": "4 flashing lights – rapidly green in colour, shining through cloud cover",
+      "image": "/public/assets/images/5.1.jpg"
+    },
+    {
+      "text": "No movement which caught his attention, different to aircraft",
+      "observed": "Naked eye",
+      "weather": "Fairly clear. Sighting below cloud",
+      "date_time": "1985/05/24 20:00",
+      "location": "Cowley Hill, SE of Shenley",
+      "shape": "Triangle",
+      "duration": "2–3 minutes",
+      "summary": "Slightly odd. Saw a triangle of light, self illuminated. Equilateral, colour yellow/silver",
+      "image": "/public/assets/images/67.jpg"
+    },
+    {
+      "text": "2 or 3 objects seen in formation. Shape not known.",
+      "observed": "Naked eye",
+      "weather": "Very clear sky, stars and moon",
+      "date_time": "1987/11/12 20:00",
+      "location": "Edmonton, London",
+      "shape": "Lights",
+      "duration": "2 hours",
+      "summary": "White bright light bigger than a star. Light flashing. Red light on left, green light on right and flashing white lights underneath",
+      "image": "/public/assets/images/5.1.jpg"
+    },
+    {
+      "text": "",
+      "observed": "Naked eye",
+      "weather": "",
+      "date_time": "1988/03/17 19:40",
+      "location": "Cannock, Staffordshire",
+      "shape": "Oval",
+      "duration": "",
+      "summary": "Oval type shape being 6ft wide and 2ft high with red and green lights all round its circumference.",
+      "image": "/public/assets/images/25.jpg"
+    },
+    {
+      "text": "",
+      "observed": "Naked eye",
+      "weather": "",
+      "date_time": "1988/02/14 19:10",
+      "location": "Dunmow, Essex",
+      "shape": "Ball",
+      "duration": "5–10 seconds",
+      "summary": "One – ball with long tail – bright with sparks",
+      "image": "/public/assets/images/29.jpg"
+    },
+    {
+      "text": "Bullet shaped about the size of medium ... no sound or smell detected. Object moved from south of observer and disappeared from observer, beaming around 260°. Object moved horizontally at around 800mph. Last seen N. side of Epsom Common",
+      "observed": "Naked eye",
+      "weather": "3/8 cloud. Surface visibility 1-2 miles",
+      "date_time": "1988/91/17 17:15",
+      "location": "Epsom, Surrey",
+      "shape": "Bullet",
+      "duration": "2 seconds",
+      "summary": "1 very bright object, lime green colour with rocket-like orange trail. ",
+      "image": "/public/assets/images/45.jpg"
     }
   ]
 }

@@ -90,6 +90,16 @@ app.get('/sighting/:index', (req, res) => {
     res.render('sighting', outputContent);
   });
 });
+/* -------- TILE VIEW PAGE -------- */
+
+app.get('/tile', (req, res) => {
+  read('data.json', (err, content) => {
+    if (err) {
+      return console.error(err);
+    }
+    res.render('tile', content);
+  });
+});
 
 /* -------- COMMUNITY CONTRIBUTIONS -------- */
 // Renders form to add new sighting

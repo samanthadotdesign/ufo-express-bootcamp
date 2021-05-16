@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <title>UFO Sightings Directory</title>
+  </head>
+  <body>
+    <%- include('../templates/header'); -%>
+
+    <div class="page-wrap">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- For each data.json object -->
+          <% sightings.forEach((sightingObj,i) => { %>
+
+          <!-- One slide -->
+          <div class="swiper-slide">
+            <!-- Image left -->
+            <div class="swiper-image" data-swiper-parallax-y="35%">
+              <div class="swiper-image-inner swiper-image">
+                <!-- Image here -->
+                <img src=" <%= sightingObj.image %>  " alt="image" />
+              </div>
+            </div>
+            <!-- Text right -->
+            <div class="swiper-image" data-swiper-parallax-y="-20%">
+              <div class="swiper-text-inner swiper-text">
+                <!-- Label & read-only input -->
+                <div class="input-div">
+                  <span class="label">Date</span>
+                  <span class="info"
+                    ><a href="/sighting/<%= i %>"
+                      ><%= sightingObj.date_time %></a
+                    ></span
+                  >
+                </div>
+
+                <div class="input-div">
+                  <span class="label">Shape</span>
+                  <span class="info"><%= sightingObj.shape %></span>
+                </div>
+
+                <div class="input-div">
+                  <span class="label">Observed</span>
+                  <span class="info"><%= sightingObj.observed %></span>
+                </div>
+
+                <div class="input-div">
+                  <span class="label">Weather</span>
+                  <span class="info"> <%= sightingObj.weather %></span>
+                </div>
+
+                <div class="input-div">
+                  <span class="label">Location</span>
+                  <span class="info"><%= sightingObj.location %></span>
+                </div>
+
+                <div class="input-div">
+                  <span class="label">Incident</span>
+                  <span class="info">
+                    <%= sightingObj.summary %> <br />
+                    <%= sightingObj.text %></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+          <!------------------------------->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+
+<script src="/scroll.js"></script>
