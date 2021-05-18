@@ -1,3 +1,6 @@
+/**
+ * Frag comes from Kodelife OpenGL
+ */
 const frag = `
 
 #ifdef GL_ES
